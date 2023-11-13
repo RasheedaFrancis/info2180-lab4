@@ -64,11 +64,32 @@ $superheroes = [
       "biography" => "Notably powerful, Wanda Maximoff has fought both against and with the Avengers, attempting to hone her abilities and do what she believes is right to help the world.",
   ], 
 ];
-error_log('PHP script executed successfully'); 
-?>
 
+$suphero = filter_input(INPUT_GET, 'query');
+$boolean = false;
+if (empty($suphero)): ?>
 <ul>
 <?php foreach ($superheroes as $superhero): ?>
   <li><?= $superhero['alias']; ?></li>
 <?php endforeach; ?>
 </ul>
+<?php 
+else:
+    foreach ($superheroes as $superhero):
+        if (strtolower($superhero['alias']) == strtolower($suphero) || strtolower($superhero['name']) == strtolower($suphero)):
+            $boolean = true; ?>
+            <h3><?= $superhero['alias']; ?></h3>
+            <h4>A.K.A <?= $superhero['name']; ?></h4>
+            <p><?= $superhero['biography']; ?></p>
+        <?php endif;
+    endforeach;
+    if (!$boolean): ?>
+        <p style="color:red">SUPERHERO NOT FOUND</p>
+    <?php endif;
+endif;
+?>
+
+
+
+
+

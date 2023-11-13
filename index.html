@@ -11,14 +11,27 @@
     <title>INFO2180 Lab 4</title>
 </head>
 <body>
-    <header>
+      <header>
         <div class="container">
             <h1>Avengers Character Search</h1>
         </div>
-    </header>
-        
-            <button type="submit" class="btn" id="searchButton">Search</button>
-          
+      </header>
+        <main>
+            <form name ="form" action="#" method="post">
+                <div>
+                    <label for="superhero">Search by Full Name or Alias</label>
+                </div>
+
+                <div>
+                    <input type="text" name="hero" placeholder="e.g. Captain America or Steve Rogers" size ="65">
+                    <button type="submit" class="btn" id="searchButton">Search</button>
+                </div>
+            </form>
+            <div>
+                <h2>RESULT</h2>
+            </div>
+            <div id=result></div>
+    </main>      
 </body>
 
 </html>
